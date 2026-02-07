@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@theme {
+    --font-sans: "Onest", sans-serif, ui-sans-serif, system-ui;
+}
+
+@plugin "@iconify/tailwind4";
+
+@plugin "daisyui" {
+    themes: dark --default;
+}
