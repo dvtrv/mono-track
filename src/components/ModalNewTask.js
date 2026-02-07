@@ -1,6 +1,6 @@
-export const ModalNewTask = ({ action }) => {
+export const ModalNewTask = ({ action, className }) => {
   return /* html */ `
-  <dialog data-action="${action}" class="modal">
+  <dialog data-action="${action}" class="modal ${className}">
 
     <div class="modal-box">
         <h3 class="text-lg font-bold">Hello!</h3>
