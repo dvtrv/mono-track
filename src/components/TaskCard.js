@@ -2,11 +2,9 @@ import { Button } from "./Button";
 import { Badge } from "./Badge";
 
 export const TaskCard = ({
-  id = "{NoTaskNumber}",
-  taskTitle = "{NoTaskTitle}",
-  taskDescription = "{NoTaskDescription}",
-  createdTime = "{NotCreated}",
-  completionTime = "{NotComplited}",
+  id = "{no id}",
+  title = "{Task title is empty}",
+  description = "{Task description is empty}",
   className = "",
 }) => {
   return /* html */ `
@@ -23,7 +21,7 @@ export const TaskCard = ({
                     <span class="text-xs font-mono opacity-40">#${id}</span>
                     ${Badge({ variant: "positive", text: "ToDo" })}
                 </div>
-                <p class="text-sm font-medium leading-tight text-base-content">${taskTitle}</p>
+                <p class="text-sm font-medium leading-tight text-base-content">${title}</p>
             </div>
         </div>
 
@@ -33,7 +31,7 @@ export const TaskCard = ({
       <ul class="flex justify-between flex-col bg-base-200 min-h-full w-80 p-4">
         <!-- Sidebar content here -->
         <li><span class="text-xs font-mono opacity-40">#${id}</span></li>
-        <li><p class="text-sm font-medium leading-tight text-base-content">${taskTitle}</p></li>
+        <li><p class="text-sm font-medium leading-tight text-base-content">${title}</p></li>
         <li class = "flex flex-col gap-2">
             ${Button({ text: "Edit task", className: "btn-primary btn-soft" })}
             ${Button({ text: "Delete task", className: "btn-error btn-soft" })}
