@@ -1,19 +1,30 @@
-export const Modal = ({ action }) => {
-  return /* html */ `
-  <dialog data-action="${action}" class="modal">
+import { Button } from "./Button";
+import { icon } from "../assets/icon";
 
-    <div class="modal-box">
-        <h3 class="text-lg font-bold">Hello!</h3>
-        <p class="py-4">Press ESC key or click outside to close</p>
-    <!--aditional "close" button-->
-        <form class="modal-action">
-            <button class="btn">close</button>
-        </form>
+export const Modal = ({ data, action, className, header, slot }) => {
+  const slotContent = Array.isArray(slot) ? slot.join("") : slot;
+  const headerContent = header ? header : "";
+
+  const idAttr = data?.id ? `data-id="${data.id}"` : "";
+  const actionAttr = action ? `data-action="${action}"` : "";
+  const classAttr = className ? `class="modal ${className}"` : `class="modal"`;
+
+  return /* html */ `
+  <dialog ${idAttr} ${actionAttr} ${classAttr}>
+    <div class="modal-box flex flex-col justify-between gap-0.5">
+
+        <div method="dialog" class="modal-action m-0 justify-between items-center">
+          <h3 class="text-lg font-bold">${headerContent}</h3>
+          <!--aditional "close" button-->
+          ${Button({ className: "btn-circle btn-sm", icon: icon.close, action: "close-button" })}
+        </div>
+
+        ${slotContent}
 
     </div>
-        <!--outside the modal "close" button-->
-    <form class="modal-backdrop">
-        <button>close</button>
+
+    <form method="dialog" class="modal-backdrop">
+      <button> <!--outside "close" button--> </button>
     </form>
 
   </dialog>

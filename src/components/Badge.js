@@ -23,7 +23,7 @@ export const Badge = ({ text, icon, variant }) => {
   return /* html */ `
     <div class="badge badge-sm badge-soft ${badgeVariant(variant)}">
         ${icon ? `<span class="w-6 h-6 shrink-0 ${icon}"></span>` : ""}
-        ${text ? `<span class="leading-none">${text}</span>` : ""}
+        ${text ? `<span class="leading-none opacity-60">${text}</span>` : ""}
     </div>
 
   `;

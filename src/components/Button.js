@@ -1,9 +1,4 @@
-export const Button = ({
-  text,
-  icon,
-  className,
-  action = "action-default",
-}) => {
+export const Button = ({ text, icon, className, action = "default" }) => {
   return /* html */ `
     <button class="btn ${className}"
             data-action="${action}">

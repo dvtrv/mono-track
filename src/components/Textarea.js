@@ -1,15 +1,15 @@
-export const Textarea = ({
-  className,
-  placeholder = "Enter text",
-  label,
-  legend,
-  action,
-}) => {
+export const Textarea = ({ className, placeholder, action, legend, label }) => {
+  const propsContent = (props) => (props ? `${props}` : "");
+  const actionAttr = action ? `data-action="${action}"` : "";
+  const placeholderAttr = placeholder
+    ? `placeholder="${placeholder}"`
+    : `placeholder="Textarea text"`;
+
   return /* html */ `
     <fieldset class="fieldset ">
-      ${legend ? `<legend class="fieldset-legend">${legend}</legend>` : ""}
-        <textarea data-action="${action}" class="textarea h-24 flex w-full ${className}" placeholder="${placeholder}"></textarea>
-      ${label ? `<div class="label">${label}</div>` : ""}
+      <legend class="fieldset-legend opacity-30">${propsContent(legend)}</legend>
+        <textarea class="textarea h-24 flex w-full ${className}" ${actionAttr} ${placeholderAttr}></textarea>
+      <div class="label">${propsContent(label)}</div>
     </fieldset>
     `;
 };
