@@ -34,8 +34,8 @@ const targetAction = (dataAction, dataId) => {
 };
 
 const openTaskCard = (dataId) => {
-  store.currentTaskId = dataId;
-  const taskData = store.getTaskById(store.currentTaskId);
+  store.state.currentTaskId = dataId;
+  const taskData = store.getTaskById(store.state.currentTaskId);
 
   modals.closeModal("task-modal");
 
@@ -159,7 +159,7 @@ const validateField = (validatedItem) => {
 };
 
 const handleDeleteTaskBtn = () => {
-  const taskId = store.currentTaskId;
+  const taskId = store.state.currentTaskId;
   modals.closeModal("task-modal");
   store.deleteTask(taskId);
   render.renderTasks();

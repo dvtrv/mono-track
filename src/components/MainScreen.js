@@ -16,8 +16,8 @@ export const MainScreen = (tasks = []) => {
     }),
   })}
 
-  <main class="container mx-auto h-[calc(100%-64px)] px-4 pt-4 pb-6">
-        <div class="tasks-list flex flex-col gap-3">
+  <main class="max-w-2xl mx-auto h-[calc(100%-64px)] px-4 pt-4 pb-6">
+        <div class=" tasks-list flex flex-col gap-3">
 
         </div>
   </main>
