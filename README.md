@@ -2,7 +2,7 @@
 
 A simple React-based task management application built with modern web technologies.
 
-## 🚀 Features
+## Features
 
 - Create new tasks with custom titles
 - Mark tasks as completed
@@ -10,7 +10,7 @@ A simple React-based task management application built with modern web technolog
 - Clear all completed tasks at once
 - Clean and intuitive user interface
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **React 19** - Frontend framework
 - **Vite** - Build tool and dev server
@@ -18,7 +18,7 @@ A simple React-based task management application built with modern web technolog
 - **DaisyUI** - Component library for Tailwind
 - **React Icons** - Icon library
 
-## 📦 Installation
+## Installation
 
 1. Clone the repository:
 ```bash
@@ -31,7 +31,7 @@ cd mono-track
 npm install
 ```
 
-## 🏃‍‍🌼 Usage
+## Usage
 
 ### Development
 ```bash
@@ -50,7 +50,7 @@ npm run build
 npm run preview
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 mono-track/
@@ -59,12 +59,7 @@ mono-track/
 │   ├── components/        # React components
 │   │   ├── Button.jsx
 │   │   ├── Checkbox.jsx
-│   │   ├── CreateForm.jsx
-│   │   ├── Divider.jsx
-│   │   ├── Input.jsx
-│   │   ├── Navbar.jsx
-│   │   ├── TaskCard.jsx
-│   │   └── TaskList.jsx
+│   │   └── ...
 │   ├── App.jsx           # Main application component
 │   ├── index.css         # Global styles
 │   └── main.jsx          # Application entry point
@@ -76,18 +71,14 @@ mono-track/
 └── vite.config.js
 ```
 
-## 🔧 Available Scripts
+## Available Scripts
 
 - `npm run dev` - Start development server
 - `npm run build` - Build for production
 - `npm run lint` - Run ESLint
 - `npm run preview` - Preview production build
 
-## 📝 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch
@@ -95,6 +86,6 @@ This project is open source and available under the [MIT License](LICENSE).
 4. Push to the branch
 5. Create a Pull Request
 
-## 🚀 Deployment
+## Deployment
 
 This application can be deployed to any static hosting service. After building with `npm run build`, deploy the contents of the `dist` folder.

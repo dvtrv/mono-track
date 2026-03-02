@@ -5,11 +5,7 @@ import TaskList from './components/TaskList'
 import { generateId } from '../utils/utils'
 
 function App() {
-  const [taskList, setTaskList] = useState([
-    { id: '1', title: 'First task 1', completed: false },
-    { id: '2', title: 'First task 2', completed: false },
-    { id: '3', title: 'First task 3', completed: false },
-  ])
+  const [taskList, setTaskList] = useState([])
 
   const createTaskHandler = (newTaskTitle) => {
     if (!newTaskTitle || newTaskTitle.trim() === '') return { status: 'empty' }
