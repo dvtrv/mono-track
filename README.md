@@ -2,6 +2,9 @@
 
 A simple React-based task management application built with modern web technologies.
 
+
+<video src="https://github.com/user-attachments/assets/d7bcd4a2-c31c-45b1-ae94-a6f474963a97" width="600" controls></video>
+
 ## Features
 
 - Create new tasks with custom titles
