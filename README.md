@@ -25,7 +25,7 @@ A simple React-based task management application built with modern web technolog
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/dvtrv/mono-track.git
 cd mono-track
 ```
 
