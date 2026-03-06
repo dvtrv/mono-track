@@ -2,7 +2,7 @@ import { useState } from 'react'
 import CreateForm from './components/CreateForm'
 import Navbar from './components/Navbar'
 import TaskList from './components/TaskList'
-import { generateId } from '../utils/utils'
+import { generateId } from './lib/utils'
 
 function App() {
   const [taskList, setTaskList] = useState([])

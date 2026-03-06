@@ -1,3 +1,10 @@
+import { clsx, type ClassValue } from 'clsx'
+import { twMerge } from 'tailwind-merge'
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+
 export const generateId = () => {
   const startSeed = 1770653878117
   const dateSeed = (Date.now() - startSeed).toString(36)

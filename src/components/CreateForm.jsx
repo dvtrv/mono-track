@@ -16,7 +16,10 @@ function CreateForm({ onCreateTask }) {
       return
     }
     if (result.status === 'duplicate') {
-      setShowLabel({ type: 'warning', text: 'Task with this title already exists' })
+      setShowLabel({
+        type: 'warning',
+        text: 'Task with this title already exists',
+      })
       return
     }
   }
@@ -24,6 +27,7 @@ function CreateForm({ onCreateTask }) {
   return (
     <form onSubmit={onSubmitHandler} className="flex w-full gap-2">
       <Input
+        size={'lg'}
         value={newTaskTitle}
         placeholder="Enter title for new task"
         onChange={(e) => {
@@ -32,7 +36,9 @@ function CreateForm({ onCreateTask }) {
         }}
         label={showLabel}
       />
-      <Button text="Create" variant="secondary" />
+      <Button variant="secondary">
+        <p className="font-medium text-base">Create</p>
+      </Button>
     </form>
   )
 }
