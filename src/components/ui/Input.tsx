@@ -2,7 +2,7 @@ import * as React from 'react';
 import { cn } from '@/lib/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
 
-const inputVariants = cva('input text-base', {
+const inputVariants = cva('input font-normal', {
   variants: {
     variant: {
       default: '',

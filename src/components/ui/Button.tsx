@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils';
 interface ButtonProps
   extends React.ComponentProps<'button'>, VariantProps<typeof buttonVariants> {}
 
-const buttonVariants = cva('btn', {
+const buttonVariants = cva('btn font-normal', {
   variants: {
     variant: {
       primary: 'btn-primary',
@@ -15,24 +15,20 @@ const buttonVariants = cva('btn', {
       error: 'btn-error btn-ghost',
     },
     size: {
+      xs: 'btn-xs',
       sm: 'btn-sm',
+      md: 'btn',
       lg: 'btn-lg',
+      xl: 'btn-xl',
     },
   },
   defaultVariants: {
     variant: 'primary',
-    size: 'lg',
+    size: 'md',
   },
 });
 
-function Button({
-  className,
-  variant,
-  size,
-  onClick,
-  children,
-  ...props
-}: ButtonProps) {
+function Button({ className, variant, size, children, ...props }: ButtonProps) {
   return (
     <button
       className={cn(buttonVariants({ variant, size }), className)}

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import CreateForm from './components/CreateForm'
-import Navbar from './components/Navbar'
+import Navbar from './components/ui/Navbar'
+import Button from './components/ui/Button'
 import TaskList from './components/TaskList'
 import { generateId } from './lib/utils'
 
@@ -17,7 +18,7 @@ function App() {
     const newTaskId = generateId()
     const newTask = { id: newTaskId, title: newTaskTitle, completed: false }
     setTaskList([...taskList, newTask])
-    return { status: 'succees' }
+    return { status: 'success' }
   }
 
   const deleteTaskHandler = (id) => {
@@ -39,7 +40,12 @@ function App() {
 
   return (
     <div className="app font-display h-screen flex flex-col items-center">
-      <Navbar />
+      <Navbar className="justify-center">
+        <Button variant="ghost">
+          <p className="font-bold text-lg">MonoTrack</p>
+        </Button>
+      </Navbar>
+
       <div className="flex flex-col w-full max-w-96 pt-4 px-4">
         <CreateForm onCreateTask={createTaskHandler} />
         <TaskList
