@@ -2,12 +2,12 @@ import * as React from 'react';
 import { cva } from 'class-variance-authority';
 import { LuTrash2 } from 'react-icons/lu';
 
-import { type TaskObject, type TaskAction } from '@/types';
+import { type Task, type TaskAction } from '@/types';
 import Checkbox from '@/components/ui/Checkbox';
 import Button from '@/components/ui/Button';
 
 interface TaskCardProps extends React.ComponentProps<'div'> {
-  taskObject: TaskObject;
+  taskObject: Task;
   id: string;
   onCompleteTask: TaskAction;
   onDeleteTask: TaskAction;

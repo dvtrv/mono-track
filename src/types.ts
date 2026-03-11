@@ -3,7 +3,7 @@ export type TaskListAction = () => void
 export type CreateTaskStatus = 'empty' | 'duplicate' | 'success'
 export type CreateAction = (taskTitle: string) => CreateTaskResult
 
-export interface TaskObject {
+export interface Task {
   id: string
   title: string
   completed: boolean

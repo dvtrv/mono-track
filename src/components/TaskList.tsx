@@ -1,10 +1,10 @@
 import TaskCard from './TaskCard';
 import Divider from './ui/Divider';
 import Button from './ui/Button';
-import { type TaskObject, type TaskAction, type TaskListAction } from '@/types';
+import { type Task, type TaskAction, type TaskListAction } from '@/types';
 
 interface TaskListProps {
-  taskList: Array<TaskObject>;
+  taskList: Array<Task>;
   onDeleteTask: TaskAction;
   onCompleteTask: TaskAction;
   onClear: TaskListAction;
