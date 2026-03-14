@@ -27,19 +27,11 @@ interface InputProps
     Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>,
     VariantProps<typeof inputVariants> {
   legend?: string;
-  label?: {
-    text: string;
-    type?: 'warning' | 'error' | 'success';
-  };
+  label?: string;
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, variant, size, label, legend, ...props }, ref) => {
-    const labelClasses = cn(
-      'label mt-2',
-      label?.type === 'warning' && 'text-sm text-warning mt-1',
-      label?.type === 'error' && 'text-sm text-error mt-1',
-    );
     return (
       <fieldset className="flex flex-col w-full">
         {legend && <legend className="fieldset-legend">{legend}</legend>}
@@ -49,7 +41,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           className={cn(inputVariants({ variant, size }), className)}
           {...props}
         />
-        {label && <p className={labelClasses}>{label.text}</p>}
+        {label && <p className="text-sm text-error mt-1">{label}</p>}
       </fieldset>
     );
   },

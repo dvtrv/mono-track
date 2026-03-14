@@ -5,6 +5,7 @@ import { LuTrash2 } from 'react-icons/lu';
 import { type Task, type TaskAction } from '@/types';
 import Checkbox from '@/components/ui/Checkbox';
 import Button from '@/components/ui/Button';
+import { Card, CardContent } from '@/components/ui/Card';
 
 interface TaskCardProps extends React.ComponentProps<'div'> {
   taskObject: Task;
@@ -13,22 +14,19 @@ interface TaskCardProps extends React.ComponentProps<'div'> {
   onDeleteTask: TaskAction;
 }
 
-const taskCardVariants = cva(
-  'group flex w-full justify-between items-center bg-base-200 p-4 mt-2 rounded-lg min-h-[64px]',
-  {
-    variants: {
-      completed: {
-        true: 'opacity-50',
-        false: '',
-      },
-    },
-    defaultVariants: {
-      completed: false,
+const taskCardVariants = cva('group flex-row justify-between items-center', {
+  variants: {
+    completed: {
+      true: 'opacity-50',
+      false: '',
     },
   },
-);
+  defaultVariants: {
+    completed: false,
+  },
+});
 
-const titleVariants = cva('text-sm text-indigo-200', {
+const titleVariants = cva('text-sm text-indigo-200  line-clamp-2', {
   variants: {
     completed: {
       true: 'line-through',
@@ -39,6 +37,7 @@ const titleVariants = cva('text-sm text-indigo-200', {
     completed: false,
   },
 });
+
 const TaskCard = ({
   taskObject,
   id,
@@ -47,29 +46,31 @@ const TaskCard = ({
   ...props
 }: TaskCardProps) => {
   return (
-    <div className={taskCardVariants({ completed: taskObject.completed })}>
-      <div className="flex items-center gap-4 ">
-        <Checkbox
-          className="active:scale-90"
-          checked={taskObject.completed}
-          onChange={() => onCompleteTask(id)}
-        />
-        <h3 className={titleVariants({ completed: taskObject.completed })}>
-          {taskObject.title}
-        </h3>
-      </div>
-      <div className="opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-300 ease-in-out ">
-        <Button
-          variant="error"
-          size="sm"
-          onClick={() => {
-            onDeleteTask(id);
-          }}
-        >
-          <LuTrash2 size={16} />
-        </Button>
-      </div>
-    </div>
+    <>
+      <Card
+        size="xs"
+        className={taskCardVariants({ completed: taskObject.completed })}
+      >
+        <CardContent className="min-w-0 flex-row items-center gap-4">
+          <Checkbox
+            className="active:scale-90"
+            checked={taskObject.completed}
+            onChange={() => onCompleteTask(id)}
+          />
+          <h3 className={titleVariants({ completed: taskObject.completed })}>
+            {taskObject.title}
+          </h3>
+          <Button
+            onClick={() => onDeleteTask(id)}
+            className="opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-300 ease-in-out"
+            variant="error"
+            size="sm"
+          >
+            <LuTrash2 size={16} />
+          </Button>
+        </CardContent>
+      </Card>
+    </>
   );
 };
 

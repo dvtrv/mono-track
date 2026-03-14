@@ -25,13 +25,13 @@ export const useTasks = (): UseTasksReturn => {
   }, [tasks])
 
   const createTask: CreateAction = (taskTitle) => {
-    if (!taskTitle || taskTitle.trim() === '') return { status: 'empty' }
+    if (!taskTitle || taskTitle.trim() === '') throw new Error('empty')
 
     const hasSameTask = tasks.some(
       (task) =>
         task.title.trim().toLowerCase() === taskTitle.trim().toLowerCase(),
     )
-    if (hasSameTask) return { status: 'duplicate' }
+    if (hasSameTask) throw new Error('duplicate')
 
     const newTask: Task = {
       id: uuid(),
@@ -40,7 +40,7 @@ export const useTasks = (): UseTasksReturn => {
     }
 
     setTasks((prev) => [...prev, newTask])
-    return { status: 'success' }
+    return
   }
 
   const deleteTask: TaskAction = (id) => {

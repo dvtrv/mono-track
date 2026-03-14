@@ -1,16 +1,12 @@
 import { useState } from 'react';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
-import { type CreateTaskResult } from '@/types';
 
 interface CreateFormProps extends React.ComponentPropsWithoutRef<'form'> {
-  onCreateTask: (newTaskTitle: string) => CreateTaskResult;
+  onCreateTask: (newTaskTitle: string) => void;
 }
 
-interface FormLabel {
-  type: 'warning' | 'error' | 'success';
-  text: string;
-}
+type FormLabel = string;
 
 function CreateForm({ onCreateTask }: CreateFormProps) {
   const [newTaskTitle, setNewTaskTitle] = useState('');
@@ -18,19 +14,22 @@ function CreateForm({ onCreateTask }: CreateFormProps) {
 
   const onSubmitHandler = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const result = onCreateTask(newTaskTitle);
-    setNewTaskTitle('');
-
-    if (result.status === 'empty') {
-      setShowLabel({ type: 'warning', text: 'Task title cannot be empty' });
-      return;
-    }
-    if (result.status === 'duplicate') {
-      setShowLabel({
-        type: 'warning',
-        text: 'Task with this title already exists',
-      });
-      return;
+    try {
+      onCreateTask(newTaskTitle);
+      setNewTaskTitle('');
+      setShowLabel(undefined);
+    } catch (error) {
+      if (error instanceof Error) {
+        const messages = {
+          empty: 'Task title cannot be empty',
+          duplicate: 'Task with this title already exists',
+        };
+        const key = error.message as keyof typeof messages;
+        if (messages[key]) {
+          setShowLabel(messages[key]);
+          setNewTaskTitle('');
+        }
+      }
     }
   };
 
